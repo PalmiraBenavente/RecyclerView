@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="flower1_name">Rosa</string>
+    <string name="flower2_name">Freesia</string>
+    <string name="flower3_name">Lily</string>
+    <string name="Welcome_to_my_Garden">Welcome to my Garden</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextMainTitleStyle">
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="fontStyle">italic</item>
+        <item name="android:textColor">@color/flowerApp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
