@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.data.Flower
 import com.example.recyclerview.databinding.ItemFlowerBinding
 
-class FlowersAdapter(private val flowersList: List<Flower>) : ListAdapter<Flower, ViewHolderFlower>(FlowerDiffCallback) {
+class FlowersAdapter(private val flowersList: List<Flower>) : RecyclerView.Adapter<ViewHolderFlower>() {
 
     @Override
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -36,16 +36,6 @@ class ViewHolderFlower(private val binding: ItemFlowerBinding) :
             val binding = ItemFlowerBinding.inflate(layoutInflater, parent, false)
             return ViewHolderFlower(binding)
         }
-    }
-}
-
-object FlowerDiffCallback : DiffUtil.ItemCallback<Flower>() {
-    override fun areItemsTheSame(oldItem: Flower, newItem: Flower): Boolean {
-        return oldItem == newItem
-    }
-
-    override fun areContentsTheSame(oldItem: Flower, newItem: Flower): Boolean {
-        return oldItem.id == newItem.id
     }
 }
 
