@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_big">30sp</dimen>
+    <dimen name="padding_end_xbig">60dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="card_corner_radius_small">10dp</dimen>
+    <dimen name="image_size">48dp</dimen>
+    <dimen name="image_margin">8dp</dimen>
+    <dimen name="layout_height_xsmall">0dp</dimen>
+</resources>
