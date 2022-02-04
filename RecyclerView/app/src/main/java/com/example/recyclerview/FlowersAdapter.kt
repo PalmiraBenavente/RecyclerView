@@ -2,17 +2,16 @@ package com.example.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.data.Flower
 import com.example.recyclerview.databinding.ItemFlowerBinding
 
-class FlowersAdapter(private val flowersList: List<Flower>) : RecyclerView.Adapter<ViewHolderFlower>() {
+class FlowersAdapter(private val flowersList: List<Flower>, private val itemClicked: FlowerClicked) :
+    RecyclerView.Adapter<ViewHolderFlower>() {
 
     @Override
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolderFlower.from(parent)
+        ViewHolderFlower(ItemFlowerBinding.inflate(LayoutInflater.from(parent.context), parent, false), itemClicked)
 
     @Override
     override fun onBindViewHolder(holder: ViewHolderFlower, position: Int) {
@@ -23,18 +22,13 @@ class FlowersAdapter(private val flowersList: List<Flower>) : RecyclerView.Adapt
     override fun getItemCount() = flowersList.size
 }
 
-class ViewHolderFlower(private val binding: ItemFlowerBinding) :
+class ViewHolderFlower(private val binding: ItemFlowerBinding, private val itemClicked: FlowerClicked) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(flower: Flower) {
         binding.flowerText.text = flower.name
         binding.flowerImage.setImageResource(flower.image ?: R.drawable.rose)
-    }
-
-    companion object {
-        fun from(parent: ViewGroup): ViewHolderFlower {
-            val layoutInflater = LayoutInflater.from(parent.context)
-            val binding = ItemFlowerBinding.inflate(layoutInflater, parent, false)
-            return ViewHolderFlower(binding)
+        binding.apply {
+            this.root.setOnClickListener { itemClicked.onFlowerClicked(flower.name, flower.unicode) }
         }
     }
 }
